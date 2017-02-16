@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{ 
+			border: 1px dashed navy;
+			opacity: 0.5px;
+			position: absolute; 
+		}
+	</style>
+	<body>
+		<script>
+			document.onmousedown = function(ev){ 
+				var oldX = ev.clientX;
+				var oldY = ev.clientY;
+				document.onmousemove = function(ev){
+					document.body.innerHTML = ''; 
+					var w = Math.abs(ev.clientX-oldX);
+					var h = Math.abs(ev.clientY-oldY);
+					var l = oldX > ev.clientX?ev.clientX:oldX;
+					var t = oldY > ev.clientY?ev.clientY:oldY;  
+					var div = document.createElement('div');
+					div.style.width =  w +'px';
+					div.style.height =	h +'px';
+					div.style.left = l +'px';
+					div.style.top = t +'px';
+					document.body.appendChild(div);
+					
+				} 
+				document.onmouseup = function(){  
+					document.body.innerHTML = '';
+					document.onmousemove = null;
+				}
+			}
+		</script>
+	</body>
+</html>
