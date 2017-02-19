@@ -9,36 +9,169 @@
 			margin: 0;
 			padding: 0;
 		}
-		div{ 
-			border: 1px dashed navy;
-			opacity: 0.5px;
-			position: absolute; 
+		ul{
+			width: 330px;
+			margin: 50px auto;
+		}
+		li{
+			list-style: none;
+			float: left;
+			width: 100px;
+			height: 100px; 
+			background: darkgray;
+			margin: 2px;
+		}
+		#shadow{
+			position: absolute;
+			background: darkcyan;
+			opacity: .4;
+			left: 0;
+			top: 0;
 		}
 	</style>
 	<body>
-		<script>
-			document.onmousedown = function(ev){ 
-				var oldX = ev.clientX;
-				var oldY = ev.clientY;
-				document.onmousemove = function(ev){
-					document.body.innerHTML = ''; 
-					var w = Math.abs(ev.clientX-oldX);
-					var h = Math.abs(ev.clientY-oldY);
-					var l = oldX > ev.clientX?ev.clientX:oldX;
-					var t = oldY > ev.clientY?ev.clientY:oldY;  
-					var div = document.createElement('div');
-					div.style.width =  w +'px';
-					div.style.height =	h +'px';
-					div.style.left = l +'px';
-					div.style.top = t +'px';
-					document.body.appendChild(div);
-					
-				} 
-				document.onmouseup = function(){  
-					document.body.innerHTML = '';
-					document.onmousemove = null;
-				}
-			}
-		</script>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div id="shadow"></div>
 	</body>
+	<script>
+		var ul = document.getElementsByTagName('ul')[0];
+		var lis = document.getElementsByTagName('li');
+		var shadow = document.getElementById('shadow');
+		var pos = {};
+		var pos2 = [];
+		var onOff  = false;//方块开关；
+		var onOff1  = false;//拖拽开关
+		document.onmousedown = function(ev){ 
+			ev.preventDefault()
+			//不是li画方块，是li时走拖拽
+			if(ev.target.parentNode != ul){
+				pos.oldX = ev.clientX;//画块时的旧点
+				pos.oldY = ev.clientY;
+				onOff  = true;//方块打开；
+			}else{
+				if(ev.target.onol ==true){//如果有一个以上被选中的li时才会走拖拽
+					for(var i =0;i<lis.length;i++){
+						if(lis[i].onol){
+							pos2.push({
+								l :lis[i].getBoundingClientRect().left,
+								t :lis[i].getBoundingClientRect().top,
+								obj:lis[i] 
+							})
+							pos.oldX = ev.clientX;//拖拽时的旧点
+							pos.oldY = ev.clientY;
+						} 
+					}
+					onOff1 = true;
+				}else{//没有li被框选选中时走这个 
+					if(ev.ctrlKey){
+						ev.target.style.background = 'cyan'; 
+						onOff1 = false;
+						pos2.push({
+							l :ev.target.getBoundingClientRect().left,
+							t :ev.target.getBoundingClientRect().top,
+							obj:ev.target 
+						})
+						pos.oldX = ev.clientX;//单个的旧点
+						pos.oldY = ev.clientY; 
+						console.log(ev.ctrlKey)
+					}else{ 
+						ev.target.style.background = 'cyan'; 
+						onOff1 = true;
+						pos2.push({
+							l :ev.target.getBoundingClientRect().left,
+							t :ev.target.getBoundingClientRect().top,
+							obj:ev.target 
+						})
+						pos.oldX = ev.clientX;//单个的旧点
+						pos.oldY = ev.clientY; 
+					} 
+				}  
+			}
+		} 
+		document.onmousemove = function(ev){   
+			if(onOff){  //画方块
+				var nowX = ev.clientX;
+				var nowY = ev.clientY;
+				var w = Math.abs(pos.oldX-nowX)
+				var h =	Math.abs(pos.oldY-nowY)
+				var l = nowX>pos.oldX?pos.oldX:nowX;
+				var t = nowY>pos.oldY?pos.oldY:nowY;
+				shadow.style.top = t +'px';
+				shadow.style.left = l +'px';
+				shadow.style.width = w +'px';
+				shadow.style.height = h +'px';
+				for(var i =0;i<lis.length;i++){
+					lis[i].onol = false;
+					if(duang(shadow,lis[i])){
+						lis[i].style.background = 'cyan';
+						lis[i].onol = true;//自身开关打开
+					}else{
+						lis[i].style.background = '';
+						lis[i].onol = false;
+					} 
+				}  
+			}else{//拖拽
+				if(onOff1){
+					var nowX1 = ev.clientX;
+					var nowY1 = ev.clientY;
+					for (var i=0;i<pos2.length;i++) {
+						var l1 = pos2[i].l+  (nowX1-pos.oldX);
+						var t1 = pos2[i].t + (nowY1-pos.oldY);
+						pos2[i].obj.style.left = l1+'px';
+						pos2[i].obj.style.top = t1+'px';
+					}
+				} 
+			} 
+		}
+		document.onmouseup = function(){ 
+			if(onOff){
+				onOff  = false;
+				shadow.style.cssText = '';
+			}  
+			if(onOff1){
+				removeLi();
+				onOff1 = false;
+			}  
+		}
+		//清除记录的li数据和背景颜色
+		function removeLi(){
+			for(var i =0;i<lis.length;i++){
+				lis[i].style.background = '';
+				lis[i].onol = false;
+			}  
+			pos2 = []; 
+		}
+		//float布局转换position布局
+		removeFloat()
+		function removeFloat(){
+			for(var i =0;i<lis.length;i++){ 
+				lis[i].style.left = lis[i].getBoundingClientRect().left +'px';
+				lis[i].style.top = lis[i].getBoundingClientRect().top +'px';
+			}
+			for(var i =0;i<lis.length;i++){ 
+				lis[i].style.margin = '';
+				lis[i].style.position = 'absolute'; 
+			}
+		} 
+		//碰撞检测
+		function duang(obj1,obj2){
+			var client1 = obj1.getBoundingClientRect();
+			var client2 = obj2.getBoundingClientRect();
+			if(client1.right<client2.left || client1.bottom<client2.top || client1.left>client2.right || client1.top>client2.bottom){
+				return false;
+			}else{ 
+				return true;
+			}
+		}
+	</script>
 </html>
