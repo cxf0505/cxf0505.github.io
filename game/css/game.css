@@ -1,0 +1,298 @@
+body,ul,li{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+li{
+	list-style: none; 
+} 
+#box{
+	margin: 0 auto;
+	width: 320px;
+	height: 600px;
+	position: relative;
+}
+#div{
+	width: 320px;
+	height: 500px; 
+	position: relative; 
+	overflow: hidden;
+	border-right: 1px solid rgb(200,200,200);
+	border-bottom: 1px solid rgb(200,200,200);
+}
+#index{
+	border-left: 1px solid rgb(200,200,200);
+    border-top: 1px solid rgb(200,200,200);
+    width: 320px;
+    height: 500px; 
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#index li{
+	width: 50%;
+	height: 250px;
+	text-align: center;
+	line-height: 250px;
+	font-size: 26px;
+	font-weight: bolder;
+	float: left; 
+}
+#index li:nth-child(2),#index li:nth-child(3){
+	 background: #000000;
+	 color: #FFFFFF;
+} 
+#list{ 
+	position: absolute;
+	top: -125px;
+	left: -320px;  
+	width: 100%;  
+}  
+#list li{ 
+	width: 100%;
+	height: 124px; 
+	clear: left;
+}
+#list div,#key li{
+	border-top: 1px solid rgb(200,200,200);
+	border-left: 1px solid rgb(200,200,200);
+	width: 79px;
+	height: 100%;
+	float: left;
+	text-align: center;
+	line-height: 123px;
+	color: #FFFFFF;
+	font-size: 23px;
+}
+#show{
+	opacity: 0;
+	display: none;
+	position: absolute;
+	left: 17%;
+	top: 30%;
+	border: 3px solid #000000;
+	border-radius: 10px;
+	padding: 5px;
+	z-index: 2;
+	background: #FFFFFF;
+	text-align: center;
+}
+#show .text,#show .best{
+	background: lightgray; 
+	border-radius: 4px;
+	font-weight: bolder;
+	font-size: 12px;
+	padding: 5px 0;
+}
+#show .date{
+	font-size: 45px;
+	font-weight: bolder;
+	padding: 15px 20px;
+}
+#show .best{
+	background: none;
+	font-size: 13px;
+}
+#show .btn{
+	line-height: 50px;
+}
+#over,#nextContinue{
+	width: 30%;
+	height: 40px;
+	border: 2px solid lightgrey;
+	border-radius: 4px; 
+	color: darkgray;
+	font-size: 16px;
+	font-weight: bolder;
+}
+#over{
+	padding: 10px 25px;
+}
+#nextContinue{
+	background: #000000;
+	color: #FFFFFF;
+	border: 2px solid #000000;
+	padding: 10px 15px;
+}
+#over:active{ 
+	 background: #000000;  
+	 color: #FFFFFF; 
+}
+#nextContinue:active{ 
+	 background: #FFFFFF;  
+	 color: #000000; 
+}
+.item{
+	background: #FFFFFF;
+	transition: 0.5s;
+}
+.it{
+	background: #000000; 
+	transition: 0.1s;
+}
+.yellow{/*终点颜色*/
+	background: yellow;
+}
+#jj_mode .red{
+	background: #000000;
+	color: #FFFFFF;
+}
+/*游戏时间*/
+#datS{
+	position: absolute;
+	top: -40px;
+	left: 0; 
+	color: red;
+	font-size: 26px; 
+	line-height: 30px;
+	z-index: 999; 
+	width: 321px;
+	height: 30px;
+	text-align: center;
+}
+/*个别模式用到的进度条*/
+#progressBar{
+	position: absolute;
+	top: 0px;
+	left: 1px;     
+	z-index: 999; 
+	border-radius: 5px;
+	width: 320px;
+	height: 3px;
+	background: red;
+	display: none; 
+}
+#key{ 
+	height: 50px;
+	padding-top: 5px;
+	position: absolute;
+	left: 0;
+	top: 500px;
+	opacity: 0; 
+	display: none;
+}
+#key li{  
+	height: 50px;
+	background: #000000;
+	margin-left: 1px;
+	color: #FFFFFF;
+	line-height: 50px;
+	border: none;
+	border-radius: 50%;  
+}  
+#keyclick{
+	position: absolute;
+	left: 292px;
+	top: 8px;
+	width: 20px;
+	height: 20px; 
+	background: url(../img/set_u.png) no-repeat center;  
+	cursor: pointer;
+	
+} 
+#keyset{
+	display: none;
+	position: absolute;
+	left: 52px;
+	top: 100px; 
+	background: #e8e6e2;
+	border-radius: 10px; 
+}
+#keyset li{ 
+	width: 220px;  
+}
+.musicleft{ 
+	line-height: 30px !important;
+	height: 30px !important;
+}
+.music{
+	width: 50px; 
+	height: 30px;
+	line-height: 30px; 
+	margin-left: 15px;
+	text-align: center;
+	float: left;
+}
+#keyset .keyright,#keyset input{   
+	font-size: 23px;
+	text-align: center;
+	width: 50px; 
+	height: 50px;
+	line-height: 50px;
+	margin-left: 2px;
+	border-radius: 25%;
+	color: #FFFFFF;
+	box-shadow: inset -24px 16px 63px #000000;
+	margin-left: 40px;
+	margin-top: 2px;
+}
+#keyset .keyright{
+	float: left;
+	cursor: pointer;
+}
+#keyset .keyleft{
+	line-height: 50px;
+	height: 50px;
+	float: left;
+	text-indent: 24px;
+}
+#btn{  
+	clear: left;
+}
+#btn input{
+	width: 65px;
+	margin-top: 2px;
+	margin-left: 30px;
+	margin-bottom: 2px;
+	box-shadow: none;
+	color: #000000; 
+	outline:medium;
+} 
+/*街机中的效果选项*/
+#jj_mode{
+	position: absolute;
+	top: 0;
+	left: 1px;
+	text-align: center; 
+	opacity: 0; 
+	display: none;
+}
+#jj_mode li{
+	background:  yellow;
+	border-right: 1px solid #FFFFFF;
+	height: 125px; 
+	float: left;
+	line-height: 125px; 
+	font-weight: bolder; 
+	width: 79px; 
+} 
+#jj_mode li:last-child{
+	border:none
+}
+#jj_mode div{
+	height: 62px;
+	line-height: 125px; 
+}
+#jj_mode .vb{
+	font-size: 13px;
+	font-weight: normal; 
+	line-height: 47px;
+	color: dimgrey;
+	
+}
+/*乌云效果*/
+#jj_wy{
+	opacity: 1;
+	position: absolute;left: 0;
+	top: -100px;
+	left: 0px;
+	width: 320px;
+	height: 150px;
+	background-image: url(../img/cloudbg_2.png);
+	background-size: cover;
+	display: none;
+	z-index: 998;
+	text-align: center;
+	line-height: 100px;
+	color: #FFFFFF;
+}
