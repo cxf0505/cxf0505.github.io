@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index_style.css" />
+	</head>
+	<body>
+		<div id="box_bg" style="position: fixed;">
+			<div id="head">
+				<dl>
+					<dt id="logo"><a href="logo"></a></dt>
+					<dd id="head_nav">
+						<a href="#">网盘<span></span></a>
+						<a href="#">分享<span></span></a>
+						<a href="#">更多<span></span></a>
+					</dd>
+					<dd id="head_text"><a href="#">超级会员 限时优惠</a></dd>
+					<dd id="head_ava">
+						<span></span>
+						<span class="d1">未登录</span>
+						<a href="#" class="u1"></a> 
+						<span class="u2"></span>
+						<span class="u3">|</span> 
+						<a href="#" class="u4">客户端下载</a> 
+					</dd> 
+					<dd id="head_ui">
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</dd>
+					<dd id="head_member">
+						<a href="#">会员中心</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="menu_left">
+				<ul id="menu_ul">
+					<li class="active"><span id="All_files_ui"></span><span>全部文件</span></li>
+					<li><span></span><span>图片</span></li>
+					<li><span></span><span>文档</span></li>
+					<li><span></span><span>视频</span></li>
+					<li><span></span><span>种子</span></li>
+					<li><span></span><span>音乐</span></li>
+					<li><span></span><span>其他</span></li>
+					<li><span id="share_ui"></span><span>我的分享</span></li>
+					<li><span id="recycle_ui"></span><span>回收站</span></li>
+				</ul>
+				<div id="container">
+					<div id="container_top"> 
+						<a href="#">免费领取2048G容量啦 ！</a>
+					</div>
+					<div id="container_bottom">
+						<div id="container_x"></div>
+						<div id="container_y">
+							<span>4.35G/6G</span>
+							<span>扩容</span>
+						</div>
+					</div>
+				</div>
+				<div id="download">
+					<a href="#" style="background: url(img/left_ui.png) no-repeat"></a>
+					<a href="#" style="background: url(img/left_ui.png) no-repeat 0px -58px"></a>
+					<a href="#" style="background: url(img/left_ui.png) no-repeat 0px -117px"></a>
+					<a href="#" style="background: url(img/left_ui.png) no-repeat 0px -167px"></a>
+				</div>
+			</div>
+			<div id="content">
+				<div id="content_top">
+					<div id="content_menu">
+						<div id="menu1">上传 </div>
+						<div id="menu2">新建文件夹</div>
+						<ul id="menu3">
+							<li>分享</li>
+							<li id="down_1">下载</li>
+							<li id="remove_1">删除</li>
+							<li id="rename">重命名</li>
+							<li>复制到</li>
+							<li>移动到</li>
+							<li>更多</li> 
+						</ul>
+						<div id="menu4">
+							<input type="text" name="wj" id="" value="搜索您要的文件" />
+							<div class="sch"></div>
+							<div class="btn1" title="排序方式"></div>
+							<div class="btn2" title="列表方式切换"></div>
+						</div>
+					</div>
+				</div>
+				<div id="content_center">
+					<div id="crumb">
+						<div id="crumb_child0">
+							全部文件
+						</div> 
+						<div id="crumb_child1">
+							<span>返回上一级</span>|<span>全部文件</span>
+						</div>
+						<div id="crumb_child2">
+							<!--JS0-热身运动、JS入门教程   >-->
+							<!--<span>JS0-热身运动、JS入门教程</span> >-->
+						</div> 
+					</div>
+					<div id="num">
+						已全部加载，共1个
+					</div>
+				</div>
+				<div id="content_content">
+					<div id="check_all">
+						<div id="checkAll"></div>
+						<span>全选</span>
+					</div>
+					<ul id="docu" class="docu">
+							
+						<!--<li> 
+							<div class="checkbox_inp"></div>
+							<div class="che_b"></div>
+							<p>我的应用数据</p>
+							<div class="input_text">
+								<input type="text" value="我的应用数据"/>
+								<span></span>
+								<span></span>
+							</div> 
+						</li> -->
+					</ul> 
+				</div>
+			</div>
+		</div> 
+		<div id="files_tuo"></div>
+		<div id="block"></div>
+		<ul id="blockText">
+			<li>打开文件</li> 
+			<li>重命名</li>
+			<li>删除</li>
+		</ul>
+		<ul id="textMenu">
+			<a><span class="text_menu_i">查看方式</span></a> 
+			<ul>
+				<li id="btn2_list">列表</li>
+				<li id="btn2_thunmbnail">缩略图</li>
+			</ul>  
+			<a><span class="text_menu_i">排序方式</span></a> 
+			<ul>
+				<li>名称</li>
+				<li>大小</li>
+				<li>修改日期</li>
+			</ul> 
+			<a style="border-top: .5px solid rgb(200,200,200); padding-top: 5px;">刷新</a>
+			<a style="border-bottom: .5px solid rgb(200,200,200); padding-bottom: 5px;">新建文件夹</a>
+			<a id="vip"><span></span>会员中心</a>
+		</ul> 
+		<script type="text/javascript" src="js/date.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>
+	</body>
+</html>
