@@ -71,6 +71,7 @@ a{
 	 width: 30px;
 	 height: 30px;
 	 display: inline-block; 
+	 border-radius: 16px;
 } 
 #head_ava .d1{  
 	height: 30px;
