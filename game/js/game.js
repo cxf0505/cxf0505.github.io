@@ -509,19 +509,23 @@ Game.prototype = {
 	btnFn1:function(){//设置中确定按钮
 		var _this = this;
 		this.btn[0].onclick = function(){
-			for (var i=0;i<_this.keyArr1.length;i++) {
-				if(_this.keyArr1[i] == null){ 
-					return alert('游戏按键不能为空');
-				}else{
+			console.log(_this.keyArr1)  
+			var keyOno = _this.keyArr1.every(function(a){
+				return a!=null;
+			}) 
+			if(keyOno){
+				for (var i=0;i<_this.keyArr1.length;i++) {
 					_this.keyArr[i] = _this.keyArr1[i];
 					_this.keyLis[i].innerHTML = _this.keySetInput[i].innerHTML;
-					_this.keyset.style.display = 'none'; 
-				}  
+					_this.keyset.style.display = 'none';  
+				}
+				for (var i=0;i<_this.IndexLis.length;i++) {//模式点击开关为真
+					_this.IndexLis[i].onOffLi = true;
+				}
+				_this.keyclick.style.display = 'block';
+			}else{
+				alert('游戏按键不能为空')
 			} 
-			for (var i=0;i<_this.IndexLis.length;i++) {//模式点击开关为真
-				_this.IndexLis[i].onOffLi = true;
-			}
-			_this.keyclick.style.display = 'block'; 
 		}
 	},
 	btnFn2:function(){//设置中取消按钮
